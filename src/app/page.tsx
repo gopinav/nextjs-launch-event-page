@@ -30,7 +30,7 @@ export default function Home() {
       {/* Background color */}
       <div
         className={cn(
-          "fixed inset-0 transition-color delay-100 duration-700 opacity-30",
+          "fixed inset-0 transition-color delay-100 duration-700 opacity-25",
           {
             "bg-purple-300": currentFramework === "qwik",
             "bg-sky-300": currentFramework === "safari",
@@ -80,9 +80,44 @@ export default function Home() {
               height="50"
             />
             to <FrameworkRotation currentFramework={currentFramework} /> will{" "}
-            <span className="transition-colors duration-200">never</span> be the
-            same again
+            <span
+              className={cn("transition-colors duration-200", {
+                "text-purple-300": currentFramework === "qwik",
+                "text-sky-300": currentFramework === "safari",
+                "text-yellow-300": currentFramework === "chrome",
+                "text-teal-300": currentFramework === "tailwind",
+                "text-blue-300": currentFramework === "react",
+                "text-green-300": currentFramework === "vue",
+                "text-orange-400": currentFramework === "svelte",
+                "text-red-300": currentFramework === "mobile",
+                "text-neutral-300": currentFramework === "desktop",
+              })}
+            >
+              never
+            </span>{" "}
+            be the same again
           </h1>
+
+          <p className="mb-8">
+            <span className="text-gray-300">
+              Join us for an AI launch event by{" "}
+            </span>
+            <Image
+              alt="Builder.io logo"
+              className="inline-block ml-1 -mt-1"
+              height={20}
+              width={100}
+              src={assets.builder}
+            />
+            {" + "}
+            <Image
+              alt="Figma logo"
+              className="inline-block mx-1"
+              height={20}
+              width={55}
+              src={assets.figmatwo}
+            />
+          </p>
         </div>
       </div>
     </main>
