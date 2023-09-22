@@ -5,7 +5,12 @@ import { assets } from "@/utils/asset-utils";
 import { type Framework, frameworks } from "@/utils/framework-utils";
 import { cn } from "@/utils/tailwind-utils";
 import FrameworkRotation from "@/components/framework-rotation";
+import { Poppins } from "next/font/google";
 
+const poppins = Poppins({
+  weight: "700",
+  subsets: ["latin"],
+});
 export default function Home() {
   const [currentFramework, setCurrentFramework] = useState<Framework>(
     frameworks[0]
@@ -71,7 +76,9 @@ export default function Home() {
       {/* Content */}
       <div className="max-w-7xl mt-20 mx-auto">
         <div className="flex flex-col items-center relative z-10">
-          <h1 className="text-7xl max-w-3xl text-center leading-snug mb-12">
+          <h1
+            className={`text-7xl max-w-3xl text-center leading-snug mb-12 ${poppins.className}`}
+          >
             <Image
               alt="Figma logo"
               className="inline-block mr-8 -mt-2"
@@ -118,6 +125,27 @@ export default function Home() {
               src={assets.figmatwo}
             />
           </p>
+
+          <div className="mb-8">
+            <button
+              className={cn(
+                "text-black px-6 py-3 rounded-md text-sm font-semibold transition-colors duration-200",
+                {
+                  "bg-purple-300": currentFramework === "qwik",
+                  "bg-sky-300": currentFramework === "safari",
+                  "bg-yellow-300": currentFramework === "chrome",
+                  "bg-teal-300": currentFramework === "tailwind",
+                  "bg-blue-300": currentFramework === "react",
+                  "bg-green-300": currentFramework === "vue",
+                  "bg-orange-400": currentFramework === "svelte",
+                  "bg-red-300": currentFramework === "mobile",
+                  "bg-neutral-300": currentFramework === "desktop",
+                }
+              )}
+            >
+              Claim Ticket
+            </button>
+          </div>
         </div>
       </div>
     </main>
