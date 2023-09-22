@@ -9,7 +9,7 @@ export default function Home() {
   const [currentFramework, setCurrentFramework] = useState<Framework>(
     frameworks[0]
   );
-  const [revealContent, setRevealContent] = useState(false);
+  const [revealLayers, setRevealLayers] = useState(false);
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -21,11 +21,12 @@ export default function Home() {
   }, [currentFramework]);
 
   useEffect(() => {
-    setRevealContent(true);
+    setRevealLayers(true);
   }, []);
 
   return (
     <main>
+      {/* Background color */}
       <div
         className={cn(
           "fixed inset-0 transition-color delay-100 duration-700 opacity-30",
@@ -42,6 +43,7 @@ export default function Home() {
           }
         )}
       />
+      {/* Grid */}
       <div
         style={{
           backgroundSize: "30px",
@@ -49,6 +51,7 @@ export default function Home() {
         }}
         className="fixed inset-0 opacity-30"
       />
+      {/* Gradient */}
       <Image
         width={1200}
         height={1200}
@@ -57,12 +60,14 @@ export default function Home() {
         className="fixed inset-0 w-screen h-screen object-cover"
         src={assets.gradient}
       />
+      {/* Reveal */}
       <div
         className={cn(
           "bg-black fixed inset-0 transition-opacity duration-[1500ms]",
-          !revealContent ? "opacity-100" : "opacity-0"
+          !revealLayers ? "opacity-100" : "opacity-0"
         )}
       />
+      {/* Content */}
     </main>
   );
 }
