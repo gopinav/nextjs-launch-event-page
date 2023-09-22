@@ -21,4 +21,8 @@ export const assets = {
     "https://cdn.builder.io/api/v1/image/assets%2FYJIGb4i01jvw0SRdL5Bt%2Fc9bace408c6a4ab6b13a24b947f96517",
   desktop:
     "https://cdn.builder.io/api/v1/image/assets%2FYJIGb4i01jvw0SRdL5Bt%2F0cd3a13636be4aff87208714780c356c",
+  builder:
+    "https://cdn.builder.io/api/v1/image/assets%2FYJIGb4i01jvw0SRdL5Bt%2F539de6bea0334a14afdfcccd452bf8a8",
+  figmatwo:
+    "https://cdn.builder.io/api/v1/image/assets%2FYJIGb4i01jvw0SRdL5Bt%2F8e5e45f981514bac840e2a5f1d46e579",
 };
