@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { assets } from "@/utils/asset-utils";
 import { type Framework, frameworks } from "@/utils/framework-utils";
 import { cn } from "@/utils/tailwind-utils";
+import FrameworkRotation from "@/components/framework-rotation";
 
 export default function Home() {
   const [currentFramework, setCurrentFramework] = useState<Framework>(
@@ -68,6 +69,22 @@ export default function Home() {
         )}
       />
       {/* Content */}
+      <div className="max-w-7xl mt-20 mx-auto">
+        <div className="flex flex-col items-center relative z-10">
+          <h1 className="text-7xl max-w-3xl text-center leading-snug mb-12">
+            <Image
+              alt="Figma logo"
+              className="inline-block mr-8 -mt-2"
+              src={assets.figma}
+              width="50"
+              height="50"
+            />
+            to <FrameworkRotation currentFramework={currentFramework} /> will{" "}
+            <span className="transition-colors duration-200">never</span> be the
+            same again
+          </h1>
+        </div>
+      </div>
     </main>
   );
 }
