@@ -15,7 +15,7 @@ const FrameworkRotation = ({
           key={name}
           src={assets[name]}
           className={cn(
-            "w-full h-full object-contain object-center absolute top-0 left-0 transition-all duration-300 ",
+            "w-full h-full object-contain object-center absolute top-0 left-0 transition-all duration-200 ",
             currentFramework === name
               ? "opacity-100 transform-none"
               : index > frameworks.indexOf(currentFramework as Framework)

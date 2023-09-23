@@ -6,6 +6,7 @@ import { type Framework, frameworks } from "@/utils/framework-utils";
 import { cn } from "@/utils/tailwind-utils";
 import FrameworkRotation from "@/components/framework-rotation";
 import { Poppins } from "next/font/google";
+import Countdown from "@/components/countdown-timer";
 
 const poppins = Poppins({
   weight: "700",
@@ -15,7 +16,7 @@ export default function Home() {
   const [currentFramework, setCurrentFramework] = useState<Framework>(
     frameworks[0]
   );
-  const [revealLayers, setRevealLayers] = useState(false);
+  const [showBackground, setShowBackground] = useState(false);
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -27,7 +28,7 @@ export default function Home() {
   }, [currentFramework]);
 
   useEffect(() => {
-    setRevealLayers(true);
+    setShowBackground(true);
   }, []);
 
   return (
@@ -69,13 +70,14 @@ export default function Home() {
       {/* Reveal */}
       <div
         className={cn(
-          "bg-black fixed inset-0 transition-opacity duration-[1500ms]",
-          !revealLayers ? "opacity-100" : "opacity-0"
+          "bg-black fixed inset-0 transition-opacity duration-1000",
+          !showBackground ? "opacity-100" : "opacity-0"
         )}
       />
       {/* Content */}
       <div className="max-w-7xl mt-20 mx-auto">
         <div className="flex flex-col items-center relative z-10">
+          {/* Heading */}
           <h1
             className={`text-7xl max-w-3xl text-center leading-snug mb-12 ${poppins.className}`}
           >
@@ -104,7 +106,7 @@ export default function Home() {
             </span>{" "}
             be the same again
           </h1>
-
+          {/* Sub heading */}
           <p className="mb-8">
             <span className="text-gray-300">
               Join us for an AI launch event by{" "}
@@ -112,20 +114,20 @@ export default function Home() {
             <Image
               alt="Builder.io logo"
               className="inline-block ml-1 -mt-1"
-              height={20}
               width={100}
+              height={20}
               src={assets.builder}
             />
             {" + "}
             <Image
               alt="Figma logo"
               className="inline-block mx-1"
-              height={20}
               width={55}
+              height={20}
               src={assets.figmatwo}
             />
           </p>
-
+          {/* Claim ticket button */}
           <div className="mb-8">
             <button
               className={cn(
@@ -146,6 +148,8 @@ export default function Home() {
               Claim Ticket
             </button>
           </div>
+          {/* Countdown timer */}
+          <Countdown currentFramework={currentFramework} />
         </div>
       </div>
     </main>
