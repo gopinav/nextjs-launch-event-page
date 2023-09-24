@@ -19,13 +19,14 @@ export default function Home() {
   const [showBackground, setShowBackground] = useState(false);
 
   useEffect(() => {
-    const intervalId = setInterval(() => {
-      const currentIndex = frameworks.indexOf(currentFramework);
-      const nextIndex = (currentIndex + 1) % frameworks.length;
-      setCurrentFramework(frameworks[nextIndex]);
-    }, 2000);
+    let currentIndex = 0;
+    const rotateFrameworks = () => {
+      setCurrentFramework(frameworks[currentIndex]);
+      currentIndex = (currentIndex + 1) % frameworks.length;
+    };
+    const intervalId = setInterval(rotateFrameworks, 2000);
     return () => clearInterval(intervalId);
-  }, [currentFramework]);
+  }, []);
 
   useEffect(() => {
     setShowBackground(true);
