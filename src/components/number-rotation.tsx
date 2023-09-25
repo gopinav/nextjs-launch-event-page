@@ -1,6 +1,6 @@
 import { cn } from "@/utils/tailwind-utils";
 
-export const RotatingNumber = ({ number }: { number: number }) => {
+export const NumberRotation = ({ number }: { number: number }) => {
   const numbers = Array.from({ length: 60 }, (_, i) => i);
 
   // Determine the class for each number based on the current number

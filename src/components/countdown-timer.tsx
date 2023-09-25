@@ -3,7 +3,11 @@ import { type Framework } from "@/utils/framework-utils";
 import { useState, useEffect } from "react";
 import { TimeUnit } from "./time-unit";
 
-const Countdown = ({ currentFramework }: { currentFramework: Framework }) => {
+export const CountdownTimer = ({
+  currentFramework,
+}: {
+  currentFramework: Framework;
+}) => {
   const [countdown, setCountdown] = useState(calculateTimeToEvent());
 
   useEffect(() => {
@@ -39,5 +43,3 @@ const Countdown = ({ currentFramework }: { currentFramework: Framework }) => {
     </div>
   );
 };
-
-export default Countdown;

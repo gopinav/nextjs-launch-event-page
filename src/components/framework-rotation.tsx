@@ -3,7 +3,7 @@ import { assets } from "@/utils/asset-utils";
 import { type Framework, frameworks } from "@/utils/framework-utils";
 import { cn } from "@/utils/tailwind-utils";
 
-const FrameworkRotation = ({
+export const FrameworkRotation = ({
   currentFramework,
 }: {
   currentFramework: Framework;
@@ -30,5 +30,3 @@ const FrameworkRotation = ({
     </div>
   );
 };
-
-export default FrameworkRotation;

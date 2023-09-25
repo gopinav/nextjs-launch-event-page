@@ -1,5 +1,5 @@
 import { cn } from "@/utils/tailwind-utils";
-import { RotatingNumber } from "./rotating-number";
+import { NumberRotation } from "./number-rotation";
 
 export const TimeUnit = ({
   label,
@@ -12,7 +12,7 @@ export const TimeUnit = ({
 }) => (
   <div className="flex flex-col">
     <div className="text-white text-3xl font-semibold">
-      <RotatingNumber number={value} />
+      <NumberRotation number={value} />
     </div>
     <div
       className={cn("text-[8px] font-medium", {

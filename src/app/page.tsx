@@ -4,9 +4,9 @@ import { useEffect, useState } from "react";
 import { assets } from "@/utils/asset-utils";
 import { type Framework, frameworks } from "@/utils/framework-utils";
 import { cn } from "@/utils/tailwind-utils";
-import FrameworkRotation from "@/components/framework-rotation";
+import { FrameworkRotation } from "@/components/framework-rotation";
 import { Poppins } from "next/font/google";
-import Countdown from "@/components/countdown-timer";
+import { CountdownTimer } from "@/components/countdown-timer";
 
 const poppins = Poppins({
   weight: "700",
@@ -150,7 +150,7 @@ export default function Home() {
             </button>
           </div>
           {/* Countdown timer */}
-          <Countdown currentFramework={currentFramework} />
+          <CountdownTimer currentFramework={currentFramework} />
         </div>
       </div>
     </main>
