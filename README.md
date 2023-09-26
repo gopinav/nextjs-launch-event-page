@@ -13,6 +13,5 @@ Head to localhost:3000 to view the app.
 
 ## Links & Resources
 
-YouTube Video Tutorial
-Builder.io
-velocity.builder.io
+[YouTube Video Tutorial](https://youtu.be/VPpw6_S44J0?si=iRwJa8J4CkoQJn0a)
+[velocity.builder.io](https://velocity.builder.io/)
