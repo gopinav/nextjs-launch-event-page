@@ -7,6 +7,7 @@ import { cn } from "@/utils/tailwind-utils";
 import { FrameworkRotation } from "@/components/framework-rotation";
 import { Poppins } from "next/font/google";
 import { CountdownTimer } from "@/components/countdown-timer";
+import { Cursor } from "@/components/cursor";
 
 const poppins = Poppins({
   weight: "700",
@@ -131,6 +132,7 @@ export default function Home() {
           {/* Claim ticket button */}
           <div className="mb-8">
             <button
+              id="claim-btn"
               className={cn(
                 "text-black px-6 py-3 rounded-md text-sm font-semibold transition-colors duration-200",
                 {
@@ -153,6 +155,7 @@ export default function Home() {
           <CountdownTimer currentFramework={currentFramework} />
         </div>
       </div>
+      <Cursor />
     </main>
   );
 }
