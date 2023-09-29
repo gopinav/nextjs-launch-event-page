@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { assets } from "@/utils/asset-utils";
 import { type Framework, frameworks } from "@/utils/framework-utils";
 import { cn } from "@/utils/tailwind-utils";
@@ -18,6 +18,7 @@ export default function Home() {
     frameworks[0]
   );
   const [showBackground, setShowBackground] = useState(false);
+  const buttonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     let currentIndex = 0;
@@ -132,7 +133,7 @@ export default function Home() {
           {/* Claim ticket button */}
           <div className="mb-8">
             <button
-              id="claim-btn"
+              ref={buttonRef}
               className={cn(
                 "text-black px-6 py-3 rounded-md text-sm font-semibold transition-colors duration-200",
                 {
@@ -155,7 +156,7 @@ export default function Home() {
           <CountdownTimer currentFramework={currentFramework} />
         </div>
       </div>
-      <Cursor />
+      <Cursor buttonRef={buttonRef} />
     </main>
   );
 }
